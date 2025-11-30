@@ -1,0 +1,150 @@
+{
+  "name": "AI Docker Logs Summary",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 22
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -400,
+        -16
+      ],
+      "id": "95a94c24-cce5-49ee-8a4a-d4fc20e0a1ff",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:8765/analyze",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "hours",
+              "value": "24"
+            },
+            {
+              "name": "lm_studio_url",
+              "value": "http://localhost:1234/v1/completions"
+            },
+            {
+              "name": "model",
+              "value": "qwen2.5-1.5b-instruct"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -192,
+        -16
+      ],
+      "id": "3d1b11ed-82c3-4d5f-8475-e863d5fe6cc5",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $input.all()[0].json;\nconst summary = data.summary;\n\n// Build HTML email\nlet html = `\n<h2>🏠 Home Lab Daily Summary</h2>\n<p><strong>Analysis Time:</strong> ${data.timestamp}</p>\n<p><strong>Containers Analyzed:</strong> ${data.containers_analyzed}</p>\n<p><strong>Issues Found:</strong> ${data.issues_found}</p>\n\n<h3>🔴 Critical Issues</h3>\n<ul>\n${summary.critical_issues?.map(i => `<li>${i}</li>`).join('') || '<li>None</li>'}\n</ul>\n\n<h3>⚠️ Warnings</h3>\n<ul>\n${summary.warnings?.map(w => `<li>${w}</li>`).join('') || '<li>None</li>'}\n</ul>\n\n<h3>✅ Successes</h3>\n<ul>\n${summary.successes?.map(s => `<li>${s}</li>`).join('') || '<li>None reported</li>'}\n</ul>\n\n<h3>💡 Recommendations</h3>\n<ul>\n${summary.recommendations?.map(r => `<li>${r}</li>`).join('') || '<li>None</li>'}\n</ul>\n\n<h3>📊 Container Status</h3>\n<ul>\n${Object.entries(summary.container_status || {}).map(([name, status]) => \n  `<li><strong>${name}:</strong> ${status}</li>`\n).join('')}\n</ul>\n\n<p><strong>Overall Health:</strong> ${summary.overall_health?.toUpperCase()}</p>\n`;\n\nreturn { json: { subject: `Home Lab Summary - ${summary.overall_health}`, html } };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        16,
+        -16
+      ],
+      "id": "0c2b0623-9905-4b88-89c1-170e8beec861",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "fromEmail": "REPLACE_ME@example.com",
+        "toEmail": "REPLACE_ME@example.com",
+        "subject": "={{ $json.subject }}",
+        "html": "={{ $json.html }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        224,
+        -16
+      ],
+      "id": "16a0722b-bc41-4434-8d31-7755218587a7",
+      "name": "Send email",
+      "webhookId": "e5666c08-d200-4cbb-85dc-973fa8775c38",
+      "credentials": {
+        "smtp": {
+          "id": "55jx63ch84sdLdem",
+          "name": "SMTP account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Send email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send email": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "b096xc76-2234-4c26-86ab-1689e864310",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "34a8g41b94154dga5731ca0f9c534d68d85f16b916d72a91cfce314d2a4hkdvc98"
+  },
+  "id": "lvEHgJ41zS91ycJD",
+  "tags": []
+}
