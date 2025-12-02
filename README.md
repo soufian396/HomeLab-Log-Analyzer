@@ -8,7 +8,7 @@ Just *pure self-hosted magic*
 
 ---
 
-## 🚀 What This Project Does
+##  What This Project Does
 This tool automatically:
 
 - Collects logs from all (or selected) Docker containers  
