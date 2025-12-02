@@ -1,10 +1,10 @@
-# 🧠 HomeLab Log Analyzer — Zero-Noise, AI-Powered Daily Summaries  
+# HomeLab Log Analyzer — Zero-Noise, AI-Powered Daily Summaries  
 A fully-local, fully-automated system that turns your chaotic Docker logs into clean, structured, actionable data... every night... powered by your own local LLM.
 
 No cloud.  
 No API fees.  
 No bullshit.  
-Just *pure self-hosted magic* ✨
+Just *pure self-hosted magic*
 
 ---
 
@@ -27,7 +27,7 @@ Reddit Post of Release - [https://www.reddit.com/r/homelab/comments/1pa8d94/i_bu
 
 ---
 
-## 🏗️ How It Works
+## How It Works
 ```
 ┌─────────────┐      ┌────────────────┐      ┌──────────────┐      ┌──────────┐
 │   N8N       │─────▶│  FastAPI App   │─────▶│  LM Studio   │─────▶│  Email   │
@@ -45,19 +45,19 @@ Reddit Post of Release - [https://www.reddit.com/r/homelab/comments/1pa8d94/i_bu
 
 ---
 
-## ✨ Features at a Glance
-- 🐳 **Docker log ingestion** (auto or per-container)
-- 🧹 **Noise-filtering engine** (health checks, ping/pong, heartbeats, empty lines, etc.)
-- 🤖 **Local LLM analysis** (Qwen, Phi-3, Llama, anything LM Studio supports)
-- 📦 **Structured JSON output**
-- 🔔 **Daily summary email**
-- 🔒 **100% private & offline**
-- ⚡ **Lightweight — runs on a mini-PC or NUC**
-- 🔁 **Plug-and-play with N8N automation**
+## Features at a Glance
+-  **Docker log ingestion** (auto or per-container)
+-  **Noise-filtering engine** (health checks, ping/pong, heartbeats, empty lines, etc.)
+-  **Local LLM analysis** (Qwen, Phi-3, Llama, anything LM Studio supports)
+-  **Structured JSON output**
+-  **Daily summary email**
+-  **100% private & offline**
+-  **Lightweight — runs on a mini-PC or NUC**
+-  **Plug-and-play with N8N automation**
 
 ---
 
-## 🔧 Included in This Repository
+##  Included in This Repository
 - `log_analyzer.py` — Complete FastAPI backend  
 - `n8n_workflow.json` — Drop-in N8N daily summary workflow  
 - `docker-compose.yml` — One-command deployment  
@@ -73,7 +73,7 @@ Reddit Post of Release - [https://www.reddit.com/r/homelab/comments/1pa8d94/i_bu
 
 ---
 
-## 🧪 Example Output (JSON)
+##  Example Output (JSON)
 ```json
 {
   "critical_issues": ["Container 'db' restarted unexpectedly"],
@@ -93,7 +93,7 @@ Reddit Post of Release - [https://www.reddit.com/r/homelab/comments/1pa8d94/i_bu
 
 ---
 
-## 🛠️ Installation
+##  Installation
 ```bash
 git clone https://github.com/WhiskeyCoder/homelab-log-analyzer
 cd homelab-log-analyzer
@@ -102,7 +102,7 @@ python log_analyzer.py
 
 ---
 
-## 🤖 Why Local LLM?
+##  Why Local LLM?
 Because it’s:
 
 - **Free** (no API bills)  
@@ -132,13 +132,13 @@ Beautiful HTML formatting included.
 
 ---
 
-## 🤝 Contribute
+##  Contribute
 PRs welcome.  
 New noise-filters, better prompts, new N8N flows — bring them on.
 
 ---
 
-## 📜 License
+##  License
 MIT — use it, break it, improve it, ship it.
 
 ---
